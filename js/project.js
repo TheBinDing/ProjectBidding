@@ -3,6 +3,9 @@ var tpoly = {
 };
 
 (function ( $ ) {
+    var d = new Date();
+    document.getElementById("goal").innerHTML = 'เป้าหมายประมูลงานปี '+ (d.getFullYear() + 543);
+
     tpoly.project.TurnPages = function() {
         window.location = ("../Progress/progress2.php");
     }
