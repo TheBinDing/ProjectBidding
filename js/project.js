@@ -57,10 +57,12 @@ var tpoly = {
                 if(resultSearch[i]['yes'] == 1) {
                     yes = '<div style="color:green;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     no = '';
+                    couclude = resultSearch[i]['couclude'];
                 }
                 if(resultSearch[i]['no'] == 1) {
                     yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    couclude = '';
                 }
                 html += '<tr>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+ m +'</td>';
@@ -73,7 +75,7 @@ var tpoly = {
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['bargain']+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+yes+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+no+'</td>';
-                html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['couclude']+'</td>';
+                html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+couclude+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['annotation']+'</td>';
                 html += '</tr>';
             }

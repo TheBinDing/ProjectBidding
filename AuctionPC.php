@@ -60,7 +60,7 @@
     jQuery(function( $ ) {
         tpoly.project.Criteria = {};
         tpoly.project.auctionList();
-        // tpoly.StartClock24();
+        tpoly.StartClock24();
     });
 
 //-->
