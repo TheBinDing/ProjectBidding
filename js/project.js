@@ -7,6 +7,21 @@ var tpoly = {
         window.location = ("../Progress/progress2.php");
     }
 
+    tpoly.project.auctionList = function() {
+        tpoly.project.Criteria['mode'] = 'load_auction_list';
+
+        var ajax_config = {
+            url: "",
+            dataType: "",
+            type: "POST",
+            data: tpoly.project.Criteria,
+        }
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            console.log(response);
+        });
+    }
+
     tpoly.StartClock24 = function() {
         TheTime = new Date;
         m = TheTime.getMonth();
