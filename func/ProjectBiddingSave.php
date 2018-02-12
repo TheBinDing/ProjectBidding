@@ -1,13 +1,29 @@
 <?php
     function load_auction_list($arr) {
-        // $query = mssql_query($sql);
-        // $response = array();
-        // while ($row = mssql_fetch_array($query))
-        // {
-        //     $response[] = $row;
-        // }
-        // mssql_free_result($query);
-        // return js_thai_encode($response);
+        $sql = "SELECT
+                    id,
+                    site,
+                    owner,
+                    value,
+                    thinks,
+                    offer,
+                    announce,
+                    bargain,
+                    yes,
+                    no,
+                    couclude,
+                    annotation
+                FROM
+                    [ProjectBibding].[dbo].[auction] ";
+
+        $query = mssql_query($sql);
+        $response = array();
+        while ($row = mssql_fetch_array($query))
+        {
+            $response[] = $row;
+        }
+        mssql_free_result($query);
+        return js_thai_encode($response);
     }
 
     function delete_auction_list($arr) {

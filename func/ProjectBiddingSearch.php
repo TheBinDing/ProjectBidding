@@ -1,7 +1,7 @@
 <?php
 session_start();
-require("AjaxSave.php");
-require("inc/connect.php");
+require("ProjectBiddingSave.php");
+require("../inc/connect.php");
 
 $response = array();
 $mode = $_POST['mode'];
