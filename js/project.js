@@ -6,6 +6,21 @@ var tpoly = {
     var d = new Date();
     document.getElementById("goal").innerHTML = 'เป้าหมายประมูลงานปี '+ (d.getFullYear() + 543);
 
+    tpoly.popup = function(value) {
+        if(value == 'loading'){
+            $('#block').css('display','block');
+            $('#loading').fadeIn();
+            $('html').css('overflow','hidden');
+            $('body').css('overflow','hidden');
+        }
+        else if(value == 'close'){
+            $('#block').css('display','none');
+            $('#loading').css('display','none');
+            $('html').css('overflow','auto');
+            $('body').css('overflow','auto');
+        }
+    }
+
     tpoly.project.TurnPages = function() {
         window.location = ("../Progress/progress2.php");
     }
@@ -18,9 +33,9 @@ var tpoly = {
             dataType: "json",
             type: "POST",
             data: tpoly.project.Criteria,
-            // beforeSend: function() {
-            //     tpoly.popup('loading');
-            // }
+            beforeSend: function() {
+                tpoly.popup('loading');
+            }
         }
 
         var get_ajax = $.ajax(ajax_config);
@@ -83,6 +98,7 @@ var tpoly = {
             html += '</table>';
 
             AuctionList.html(html);
+            tpoly.popup('close');
         });
     }
 

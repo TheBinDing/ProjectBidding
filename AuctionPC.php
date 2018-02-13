@@ -17,11 +17,34 @@
     <link href="css/animate.css" rel="stylesheet">
     <title>ความคืบหน้างานประมูลโครงการ</title>
 </head>
+<style>
+    .showImg {
+        width:50%;
+        height:100px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        background-image: url('img/loader.gif');
+        background-repeat: no-repeat;
+        background-position:center 50%;
+    }
+
+    .shows {
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+        z-index:99;
+        display: none;
+    }
+</style>
 <body>
     <div class="row">
         <div id="page-wrapper" class="gray-bg" style="background-color: #064c89;">
             <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-                <div class="col-xs-9">
+                <div class="col-xs-10">
                     <p class="text-heads" style="margin-left: 10em;font-size: 25px;">
                         ความคืบหน้าสถานะงานประมูลโครงการ
                     </p>
@@ -29,7 +52,7 @@
                         บริษัท ไทยโพลีคอนส์ จำกัด (มหาชน)
                     </p>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     <p class="text-heads" style="margin-top: 10px;font-size: 18px;" id="goal"></p>
                     <p class="text-heads" style="font-size: 18px;">
                         3,300 ลบ.
