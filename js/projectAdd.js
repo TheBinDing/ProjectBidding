@@ -102,6 +102,8 @@ var tpoly = {
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+couclude+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['annotation']+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">';
+                html += '<a class="edits" data-toggle="modal" data-target="#myModal2" onclick="tpoly.projectAdd.loadAuctionAE('+resultSearch[i]['id']+');">';
+                html += '<a class="edits" data-toggle="modal" data-target="#myModal3" onclick="tpoly.projectAdd.deleteAuctionAE('+resultSearch[i]['id']+');">';
                 html += '<i class="fa fa-pencil-square-o"></i></a></td>';
                 html += '</tr>';
             }
