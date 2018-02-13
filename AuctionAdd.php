@@ -49,7 +49,7 @@
         <div id="page-wrapper" class="gray-bg" style="background-color: #064c89;">
             <div class="wrapper wrapper-content animated fadeInRight ecommerce">
                 <h1>
-                    <div class="col-xs-10">
+                    <div class="col-xs-12">
                         <p class="text-heads-manage"><i class="fa fa-cogs"></i>  จัดการข้อมูลความคืบหน้างานประมูลโครงการ</p>
                     </div>
                 </h1>
@@ -58,8 +58,8 @@
                     <br>
                     <br>
                     <br>
-                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: #FF6A6A;color: #000000;margin-bottom: 20px;margin-right: 10px;">ผลการประมูลไม่ได้</span>
-                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: #FFE4B5;color: #000000;margin-right: 10px;">ผลการประมูลได้</span>
+                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: red;color: #000000;margin-bottom: 20px;margin-right: 10px;">ผลการประมูลไม่ได้</span>
+                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: green;color: #000000;margin-right: 10px;">ผลการประมูลได้</span>
                     <div id="AuctionList"></div>
                     <div class="modal inmodal fade" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -310,8 +310,11 @@
                                     <input type="hidden" id="KAKA" />
                                 </div>
                                 <div class="modal-footer">
+                                    <input type="hidden" id="delete" />
                                     <button type="button" class="btn btn-white" data-dismiss="modal">ยกเลิก</button>
-                                    <button class="btn btn-primary" name="trash" id="trash">ลบ</button>
+                                    <button class="btn btn-primary" data-dismiss="modal" onClick="tpoly.projectAdd.deleteAuction();">
+                                        <span aria-hidden="true">ลบ</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

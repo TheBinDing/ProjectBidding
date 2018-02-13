@@ -109,10 +109,10 @@
         mssql_query($sql);
     }
 
-    function delete_auction_list($arr) {
-        $delete = "DELETE FROM [ProjectBibding].[dbo].[auction] WHERE id = '". $arr['code'] ."' ";
+    function delete_auction($arr) {
+        $delete = "DELETE FROM [ProjectBibding].[dbo].[auction] WHERE id = '". $arr['id'] ."' ";
 
-        // mssql_query($delete);
+        mssql_query($delete);
         // return $delete;
     }
 

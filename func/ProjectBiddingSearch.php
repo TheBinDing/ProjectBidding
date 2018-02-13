@@ -21,6 +21,9 @@ switch ($mode)
     case 'update_auction' :
         $response = update_auction($arr);
     break;
+    case 'delete_auction' :
+        $response = delete_auction($arr);
+    break;
 }
 
 echo json_encode($response);

@@ -103,8 +103,10 @@ var tpoly = {
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['annotation']+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">';
                 html += '<a class="edits" data-toggle="modal" data-target="#myModal2" onclick="tpoly.projectAdd.loadAuctionAE('+resultSearch[i]['id']+');">';
-                html += '<a class="edits" data-toggle="modal" data-target="#myModal3" onclick="tpoly.projectAdd.deleteAuctionAE('+resultSearch[i]['id']+');">';
                 html += '<i class="fa fa-pencil-square-o"></i></a></td>';
+                html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">';
+                html += '<a class="delete" data-toggle="modal" data-target="#myModal3" onclick="tpoly.projectAdd.setDelete('+resultSearch[i]['id']+');">';
+                html += '<i class="fa fa fa-trash-o"></i></a></td>';
                 html += '</tr>';
             }
             html += '</tbody>';
@@ -199,6 +201,30 @@ var tpoly = {
         tpoly.projectAdd.Criteria['no'] = $('#result_n').val();
         tpoly.projectAdd.Criteria['couclude'] = $('#coucludes').val();
         tpoly.projectAdd.Criteria['annotation'] = $('#annotations').val();
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.projectAdd.Criteria,
+            beforeSend:function() {
+                tpoly.popup('loading');
+            }
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            tpoly.projectAdd.auctionList();
+        });
+    }
+
+    tpoly.projectAdd.setDelete = function(id) {
+        $('#delete').val(id);
+    }
+
+    tpoly.projectAdd.deleteAuction = function() {
+        tpoly.projectAdd.Criteria['mode'] = 'delete_auction';
+        tpoly.projectAdd.Criteria['id'] = $('#delete').val();
 
         var ajax_config = {
             url: "func/ProjectBiddingSearch.php",
