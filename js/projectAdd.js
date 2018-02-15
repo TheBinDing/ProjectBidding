@@ -61,7 +61,7 @@ var tpoly = {
             html += '<th class="text-head-manage" colspan="4" style="width:300px;background-color: #001f59;vertical-align: middle;">ขั้นตอนกระบวนการ</th>';
             html += '<th class="text-head-manage" colspan="2" style="width:80px;background-color: #001f59;vertical-align: middle;">ผลการประมูลงาน</th>';
             html += '<th class="text-head-manage" rowspan="2" style="width:80px;background-color: #001f59;vertical-align: middle;">สรุปมูลค่าโครงการที่ได้</th>';
-            html += '<th class="text-head-manage" rowspan="2" style="width:200px;background-color: #001f59;vertical-align: middle;">หมายเหตุ : (ต้องจบราคาเท่าไหร่)</th>';
+            html += '<th class="text-head-manage" rowspan="2" style="width:200px;background-color: #001f59;vertical-align: middle;">หมายเหตุ : (ต้องจบราคาเมื่อไหร่)</th>';
             html += '<th class="text-head-manage" rowspan="2" style="width:25px;background-color: #001f59;vertical-align: middle;"></th>';
             html += '<th class="text-head-manage" rowspan="2" style="width:25px;background-color: #001f59;vertical-align: middle;"></th>';
             html += '</tr>';
@@ -86,6 +86,11 @@ var tpoly = {
                 if(resultSearch[i]['no'] == 1) {
                     yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    couclude = '';
+                }
+                if(resultSearch[i]['yes'] == 0 && resultSearch[i]['no'] == 0) {
+                    yes = '';
+                    no = '';
                     couclude = '';
                 }
                 html += '<tr>';

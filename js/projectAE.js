@@ -5,6 +5,7 @@ var tpoly = {
 (function ( $ ) {
     var d = new Date();
     document.getElementById("goal").innerHTML = 'เป้าหมายประมูลงานปี '+ (d.getFullYear() + 543);
+    document.getElementById("goals").innerHTML = 'เป้าหมายประมูลงานปี '+ (d.getFullYear() + 543);
 
     tpoly.popup = function(value) {
         if(value == 'loading'){
@@ -22,7 +23,7 @@ var tpoly = {
     }
 
     tpoly.project.TurnPages = function() {
-        window.location = ("../Progress/progress2.php");
+        window.location = ("../Progress/progress.php");
     }
 
     tpoly.project.auctionList = function() {
@@ -54,7 +55,7 @@ var tpoly = {
             html += '<th class="text-heads" colspan="4" style="width:300px;background-color: #001f59;vertical-align: middle;">ขั้นตอนกระบวนการ</th>';
             html += '<th class="text-heads" colspan="2" style="width:80px;background-color: #001f59;vertical-align: middle;">ผลการประมูลงาน</th>';
             html += '<th class="text-heads" rowspan="2" style="width:80px;background-color: #001f59;vertical-align: middle;">สรุปมูลค่าโครงการที่ได้</th>';
-            html += '<th class="text-heads" rowspan="2" style="width:200px;background-color: #001f59;vertical-align: middle;">หมายเหตุ : (ต้องจบราคาเมื่อไหร่)</th>';
+            html += '<th class="text-heads" rowspan="2" style="width:200px;background-color: #001f59;vertical-align: middle;">หมายเหตุ : (ต้องจบราคาเท่าไหร่)</th>';
             html += '</tr>';
             html += '<tr>';
             html += '<th class="text-heads" style="background-color: #001f59;vertical-align: middle;">คิดราคา</th>';
@@ -77,11 +78,6 @@ var tpoly = {
                 if(resultSearch[i]['no'] == 1) {
                     yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
-                    couclude = '';
-                }
-                if(resultSearch[i]['yes'] == 0 && resultSearch[i]['no'] == 0) {
-                    yes = '';
-                    no = '';
                     couclude = '';
                 }
                 html += '<tr>';
@@ -116,9 +112,6 @@ var tpoly = {
         document.getElementById("showTime").innerHTML = 'อัพเดท : '+TheTime.getDate()+' / '+m+' / '+y+'  '+tpoly.showFilled(TheTime.getHours()) + ":" +
         tpoly.showFilled(TheTime.getMinutes()) + ":" + tpoly.showFilled(TheTime.getSeconds());
         setTimeout("tpoly.StartClock24()",1000)
-        setTimeout(
-            tpoly.project.auctionList();
-        );
     }
 
     tpoly.showFilled = function(Value) {

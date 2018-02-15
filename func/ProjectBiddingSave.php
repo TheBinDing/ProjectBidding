@@ -43,17 +43,17 @@
                     )
                 VALUES
                     (
-                        '". $arr['site'] ."',
-                        '". $arr['owner'] ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['site']) ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['owner']) ."',
                         '". $arr['value'] ."',
-                        '". $arr['thinks'] ."',
-                        '". $arr['offer'] ."',
-                        '". $arr['announce'] ."',
-                        '". $arr['bargain'] ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['thinks']) ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['offer']) ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['announce']) ."',
+                        '". iconv('UTF-8', 'TIS-620', $arr['bargain']) ."',
                         '". $arr['yes'] ."',
                         '". $arr['no'] ."',
                         '". $arr['couclude'] ."',
-                        '". $arr['annotation'] ."'
+                        '". iconv('UTF-8', 'TIS-620', $arr['annotation']) ."'
                     ) ";
 
         mssql_query($sql);
@@ -92,17 +92,17 @@
         $sql =" UPDATE
                     [ProjectBibding].[dbo].[Auction]
                 SET
-                    site = '". $arr['site'] ."',
-                    owner = '". $arr['owner'] ."',
+                    site = '". iconv('UTF-8', 'TIS-620', $arr['site']) ."',
+                    owner = '". iconv('UTF-8', 'TIS-620', $arr['owner']) ."',
                     value = '". $arr['value'] ."',
-                    thinks = '". $arr['thinks'] ."',
-                    offer = '". $arr['offer'] ."',
-                    announce = '". $arr['announce'] ."',
-                    bargain = '". $arr['bargain'] ."',
+                    thinks = '". iconv('UTF-8', 'TIS-620', $arr['thinks']) ."',
+                    offer = '". iconv('UTF-8', 'TIS-620', $arr['offer']) ."',
+                    announce = '". iconv('UTF-8', 'TIS-620', $arr['announce']) ."',
+                    bargain = '". iconv('UTF-8', 'TIS-620', $arr['bargain']) ."',
                     yes = '". $arr['yes'] ."',
                     no = '". $arr['no'] ."',
                     couclude = '". $arr['couclude'] ."',
-                    annotation = '". $arr['annotation'] ."'
+                    annotation = '". iconv('UTF-8', 'TIS-620', $arr['annotation']) ."'
                 WHERE
                     id = '". $arr['id'] ."' ";
 

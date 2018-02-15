@@ -1,5 +1,7 @@
 <?php
     @session_start();
+    $Today = new Datetime();
+    $Today = $Today->format('d/m');
     // require("inc/connect.php");
     // require("inc/function.php");
     // require("progressSearchAdd.php");
@@ -55,11 +57,7 @@
                 </h1>
                 <div class="ibox-content" style="background-color: #064c89;">
                     <a style="margin-bottom: 20px;" class="btn btn-primary pull-right" id="create-site" role="button" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-plus"></span> เพิ่มประมูลงาน</a>
-                    <br>
-                    <br>
-                    <br>
-                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: red;color: #000000;margin-bottom: 20px;margin-right: 10px;">ผลการประมูลไม่ได้</span>
-                    <span class="label label-warning pull-right" style="font-size: 14px;background-color: green;color: #000000;margin-right: 10px;">ผลการประมูลได้</span>
+                    <br><br><br>
                     <div id="AuctionList"></div>
                     <div class="modal inmodal fade" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -102,28 +100,28 @@
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">คิดราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="thinks" id="thinks" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="thinks" id="thinks" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">เสนอราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="offer" id="offer" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="offer" id="offer" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">รอประกาศผล</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="announce" id="announce" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="announce" id="announce" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">ต่อรองราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="bargain" id="bargain" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="bargain" id="bargain" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
@@ -221,28 +219,28 @@
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">คิดราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="thinkss" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="thinkss" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">เสนอราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="offers" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="offers" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">รอประกาศผล</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="announces" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="announces" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-3 col-md-3">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">ต่อรองราคา</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="bargains" maxlength="50" placeholder="xx/xx/xxxx">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="bargains" maxlength="50" placeholder="<?php echo $Today.'/61'?>">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
