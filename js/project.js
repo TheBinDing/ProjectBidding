@@ -61,14 +61,31 @@ var tpoly = {
             html += '<th class="text-heads" style="background-color: #001f59;vertical-align: middle;">เสนอราคา</th>';
             html += '<th class="text-heads" style="background-color: #001f59;vertical-align: middle;">รอประกาศผล</th>';
             html += '<th class="text-heads" style="background-color: #001f59;vertical-align: middle;">ต่อรองราคา</th>';
-            html += '<th class="text-heads" style="width:30px;background-color: #001f59;vertical-align: middle;">ได้</th>';
-            html += '<th class="text-heads" style="width:30px;background-color: #001f59;vertical-align: middle;">ไม่ได้</th>';
+            html += '<th class="text-heads" style="width:30px;background-color: #001f59;vertical-align: middle;">Y</th>';
+            html += '<th class="text-heads" style="width:30px;background-color: #001f59;vertical-align: middle;">N</th>';
             html += '</tr>';
             html += '</thead>';
             html += '<tbody>';
             for(var i in resultSearch) {
                 s = parseInt(i);
                 m = (s+1);
+
+                lengthCheck = resultSearch[i]['owner'].length;
+                if(lengthCheck <=12) {
+                    value = resultSearch[i]['owner'];
+                }
+                if(lengthCheck > 12 || lengthCheck <= 24) {
+                    test1 = resultSearch[i]['owner'].slice(0, 12);
+                    test2 = resultSearch[i]['owner'].slice(12, 24);
+                    value = test1+'<br>'+test2;
+                }
+                if(lengthCheck > 24) {
+                    test1 = resultSearch[i]['owner'].slice(0, 12);
+                    test2 = resultSearch[i]['owner'].slice(12, 24);
+                    test3 = resultSearch[i]['owner'].slice(24, 36);
+                    value = test1+'<br>'+test2+'<br>'+test3;
+                }
+
                 if(resultSearch[i]['yes'] == 1) {
                     yes = '<div style="color:green;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     no = '';
@@ -87,7 +104,7 @@ var tpoly = {
                 html += '<tr>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+ m +'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['site']+'</td>';
-                html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['owner']+'</td>';
+                html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+value+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['value']+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['thinks']+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['offer']+'</td>';
@@ -116,9 +133,6 @@ var tpoly = {
         document.getElementById("showTime").innerHTML = 'อัพเดท : '+TheTime.getDate()+' / '+m+' / '+y+'  '+tpoly.showFilled(TheTime.getHours()) + ":" +
         tpoly.showFilled(TheTime.getMinutes()) + ":" + tpoly.showFilled(TheTime.getSeconds());
         setTimeout("tpoly.StartClock24()",1000)
-        setTimeout(
-            tpoly.project.auctionList();
-        );
     }
 
     tpoly.showFilled = function(Value) {

@@ -997,7 +997,7 @@ button.dim:active:before {
 }
 .text-head {
   text-align: center;
-  font-size: 26px;
+  /*font-size: 25px;*/
   /*font-size: 12px;*/
   font-family:'Prompt';
   background-color: #001f59;
@@ -1018,13 +1018,13 @@ button.dim:active:before {
 }
 .text-right {
   text-align: right;
-  font-size: 50px;
+  font-size: 48px;
   /*font-size: 12px;*/
   font-family:'Prompt';
 }
 .text-center {
   text-align: center;
-  font-size: 50px;
+  font-size: 25px;
   /*font-size: 12px;*/
   font-family:'Prompt';
 }

@@ -14,7 +14,9 @@
                     couclude,
                     annotation
                 FROM
-                    [ProjectBibding].[dbo].[auction] ";
+                    [ProjectBibding].[dbo].[auction]
+                WHERE
+                    status = '1' ";
 
         $query = mssql_query($sql);
         $response = array();
@@ -39,7 +41,8 @@
                         yes,
                         no,
                         couclude,
-                        annotation
+                        annotation,
+                        status
                     )
                 VALUES
                     (
@@ -53,7 +56,8 @@
                         '". $arr['yes'] ."',
                         '". $arr['no'] ."',
                         '". $arr['couclude'] ."',
-                        '". iconv('UTF-8', 'TIS-620', $arr['annotation']) ."'
+                        '". iconv('UTF-8', 'TIS-620', $arr['annotation']) ."',
+                        '1'
                     ) ";
 
         mssql_query($sql);
@@ -76,7 +80,8 @@
                 FROM
                     [ProjectBibding].[dbo].[auction]
                 WHERE
-                    id = '". $arr['id'] ."' ";
+                    id = '". $arr['id'] ."'
+                    AND status = '1' ";
 
         $query = mssql_query($sql);
         $response = array();
@@ -110,9 +115,14 @@
     }
 
     function delete_auction($arr) {
-        $delete = "DELETE FROM [ProjectBibding].[dbo].[auction] WHERE id = '". $arr['id'] ."' ";
+        $sql = "UPDATE
+                    [ProjectBibding].[dbo].[auction]
+                SET
+                    status = '0'
+                WHERE
+                    id = '". $arr['id'] ."' ";
 
-        mssql_query($delete);
+        mssql_query($sql);
         // return $delete;
     }
 

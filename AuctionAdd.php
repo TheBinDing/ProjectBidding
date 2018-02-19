@@ -159,7 +159,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="form-group field-projectprogress-name required">
-                                                            <label class="control-label" for="projectprogress-name">หมายเหตุ: (ต้องจบราคาเท่าไหร่)</label>
+                                                            <label class="control-label" for="projectprogress-name">หมายเหตุ: (ต้องจบราคาเมื่อไหร่)</label>
                                                             <input style="text-align: center;" type="text" class="input-sm form-control" name="annotation" id="annotation" maxlength="50">
                                                             <div class="help-block"></div>
                                                         </div>
@@ -278,7 +278,7 @@
                                                     </div>
                                                     <div class="col-lg-6 col-md-6">
                                                         <div class="form-group field-projectprogress-name required">
-                                                            <label class="control-label" for="projectprogress-name">หมายเหตุ: (ต้องจบราคาเท่าไหร่)</label>
+                                                            <label class="control-label" for="projectprogress-name">หมายเหตุ: (ต้องจบราคาเมื่อไหร่)</label>
                                                             <input style="text-align: center;" type="text" class="input-sm form-control" id="annotations" maxlength="50">
                                                             <div class="help-block"></div>
                                                         </div>

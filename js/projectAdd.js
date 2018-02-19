@@ -70,8 +70,8 @@ var tpoly = {
             html += '<th class="text-head-manage" style="background-color: #001f59;vertical-align: middle;">เสนอราคา</th>';
             html += '<th class="text-head-manage" style="background-color: #001f59;vertical-align: middle;">รอประกาศผล</th>';
             html += '<th class="text-head-manage" style="background-color: #001f59;vertical-align: middle;">ต่อรองราคา</th>';
-            html += '<th class="text-head-manage" style="width:30px;background-color: #001f59;vertical-align: middle;">ได้</th>';
-            html += '<th class="text-head-manage" style="width:30px;background-color: #001f59;vertical-align: middle;">ไม่ได้</th>';
+            html += '<th class="text-head-manage" style="width:30px;background-color: #001f59;vertical-align: middle;">Y</th>';
+            html += '<th class="text-head-manage" style="width:30px;background-color: #001f59;vertical-align: middle;">N</th>';
             html += '</tr>';
             html += '</thead>';
             html += '<tbody>';

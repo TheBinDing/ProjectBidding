@@ -1,7 +1,7 @@
 <?php
     @session_start();
-    // require("inc/connect.php");
-    // require("inc/function.php");
+    require("inc/connect.php");
+    require("inc/function.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -60,7 +60,9 @@
                 </div>
                 <br><br><br><br><br>
                 <div style="padding-bottom: 20px;">
-                    <button class="open-sendname btn-white btn btn-xs" id="turnPages" onClick="tpoly.project.TurnPages();"><i class="fa fa-link"></i> สถานะโครงการ</button>
+                    <div class="radio radio-info radio-inline">
+                        <button class="open-sendname btn-white btn btn-xs" id="turnPages" onClick="tpoly.project.TurnPages();"><i class="fa fa-link"></i> สถานะโครงการ</button>
+                    </div>
                     <div class="pull-right" style="color: yellow;" id="showTime"></div>
                 </div>
                 <div id="AuctionList"></div>
@@ -80,7 +82,7 @@
 
     jQuery(function( $ ) {
         tpoly.project.Criteria = {};
-        // tpoly.project.auctionList();
+        tpoly.project.auctionList();
         tpoly.StartClock24();
     });
 
