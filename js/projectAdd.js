@@ -3,9 +3,6 @@ var tpoly = {
 };
 
 (function ( $ ) {
-    // var d = new Date();
-    // document.getElementById("goal").innerHTML = 'เป้าหมายประมูลงานปี '+ (d.getFullYear() + 543);
-
     tpoly.popup = function(value) {
         if(value == 'loading'){
             $('#block').css('display','block');
@@ -30,6 +27,38 @@ var tpoly = {
             $('#result_y').val(0);
             $('#result_n').val(1);
         }
+    }
+
+    tpoly.projectAdd.goalLoad = function() {
+        tpoly.projectAdd.Criteria['mode'] = 'load_goal';
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.projectAdd.Criteria,
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            document.getElementById("goal").innerHTML = 'เป้าหมายโครงการ : '+ response +' ลบ.';
+        });
+    }
+
+    tpoly.projectAdd.goalsLoad = function() {
+        tpoly.projectAdd.Criteria['mode'] = 'load_goals';
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.projectAdd.Criteria,
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            $('#goals').val(response);
+        });
     }
 
     tpoly.projectAdd.auctionList = function() {
@@ -220,6 +249,27 @@ var tpoly = {
         var get_ajax = $.ajax(ajax_config);
         get_ajax.done(function(response) {
             tpoly.projectAdd.auctionList();
+        });
+    }
+
+    tpoly.projectAdd.updateGoal = function() {
+        tpoly.projectAdd.Criteria['mode'] = 'update_goal';
+        tpoly.projectAdd.Criteria['goal'] = $('#goals').val();
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.projectAdd.Criteria,
+            beforeSend:function() {
+                tpoly.popup('loading');
+            }
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            tpoly.projectAdd.goalLoad();
+            tpoly.popup('close');
         });
     }
 

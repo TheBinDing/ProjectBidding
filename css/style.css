@@ -1016,6 +1016,11 @@ button.dim:active:before {
   /*font-size: 12px;*/
   font-family:'Prompt';
 }
+.text-lefts {
+  text-align: left;
+  font-family:'Prompt';
+  color: #fff;
+}
 .text-right {
   text-align: right;
   font-size: 48px;

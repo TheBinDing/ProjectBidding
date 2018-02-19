@@ -28,6 +28,24 @@
         return js_thai_encode($response);
     }
 
+    function load_goal($arr) {
+        $sql = "SELECT goal FROM [ProjectBibding].[dbo].[Goal] ";
+
+        $query = mssql_query($sql);
+        $row = mssql_fetch_assoc($query);
+        mssql_free_result($query);
+        return number_format($row['goal']);
+    }
+
+    function load_goals($arr) {
+        $sql = "SELECT goal FROM [ProjectBibding].[dbo].[Goal] ";
+
+        $query = mssql_query($sql);
+        $row = mssql_fetch_assoc($query);
+        mssql_free_result($query);
+        return $row['goal'];
+    }
+
     function add_auction($arr) {
         $sql = "INSERT INTO [ProjectBibding].[dbo].[auction]
                     (
@@ -110,6 +128,15 @@
                     annotation = '". iconv('UTF-8', 'TIS-620', $arr['annotation']) ."'
                 WHERE
                     id = '". $arr['id'] ."' ";
+
+        mssql_query($sql);
+    }
+
+    function update_goal($arr) {
+        $sql = "UPDATE
+                    [ProjectBibding].[dbo].[Goal]
+                SET
+                    goal = '". $arr['goal'] ."' ";
 
         mssql_query($sql);
     }

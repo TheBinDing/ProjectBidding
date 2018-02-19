@@ -21,6 +21,15 @@ switch ($mode)
     case 'update_auction' :
         $response = update_auction($arr);
     break;
+    case 'update_goal' :
+        $response = update_goal($arr);
+    break;
+    case 'load_goal' :
+        $response = load_goal($arr);
+    break;
+    case 'load_goals' :
+        $response = load_goals($arr);
+    break;
     case 'delete_auction' :
         $response = delete_auction($arr);
     break;

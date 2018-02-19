@@ -56,7 +56,14 @@
                     </div>
                 </h1>
                 <div class="ibox-content" style="background-color: #064c89;">
-                    <a style="margin-bottom: 20px;" class="btn btn-primary pull-right" id="create-site" role="button" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-plus"></span> เพิ่มประมูลงาน</a>
+                    <div class="col-lg-3">
+                        <p class="text-lefts" id="goal"></p>
+                        <button role="button" data-toggle="modal" data-target="#myModal4" onclick="tpoly.projectAdd.goalsLoad();"><i class="fa fa-edit">แก้ไข</i></button>
+                    </div>
+                    <div class="col-lg-7"></div>
+                    <div class="col-lg-2">
+                        <a style="margin-bottom: 20px;" class="btn btn-primary pull-right" id="create-site" role="button" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-plus"></span> เพิ่มประมูลงาน </a>
+                    </div>
                     <br><br><br>
                     <div id="AuctionList"></div>
                     <div class="modal inmodal fade" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -298,7 +305,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal inmodal fade" id="myModal3" tabindex="-1" role="dialog"    aria-hidden="true">
+                    <div class="modal inmodal fade" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -312,6 +319,24 @@
                                     <button type="button" class="btn btn-white" data-dismiss="modal">ยกเลิก</button>
                                     <button class="btn btn-primary" data-dismiss="modal" onClick="tpoly.projectAdd.deleteAuction();">
                                         <span aria-hidden="true">ลบ</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal inmodal fade" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content animated flipInY">
+                                <div class="modal-header">
+                                    <h2>เป้าหมายโครงการ</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <label class="control-label">แก้ไขเป้าหมายโครงการ</label>
+                                    <input type="number" id="goals" class="form-control" style="text-align: center;height: 30px;">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-dismiss="modal" onclick="tpoly.projectAdd.updateGoal();">
+                                        <span aria-hidden="true">บันทึก</span>
                                     </button>
                                 </div>
                             </div>
@@ -344,6 +369,7 @@
     jQuery(function( $ ) {
         tpoly.projectAdd.Criteria = {};
         tpoly.projectAdd.auctionList();
+        tpoly.projectAdd.goalLoad();
     });
 
 //-->
