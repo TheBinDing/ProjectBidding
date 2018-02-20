@@ -29,6 +29,13 @@ var tpoly = {
         }
     }
 
+    tpoly.projectAdd.clearRadio = function() {
+        document.getElementById("yess").checked = false;
+        $('#result_y').val(0);
+        document.getElementById("nos").checked = false;
+        $('#result_n').val(0);
+    }
+
     tpoly.projectAdd.goalLoad = function() {
         tpoly.projectAdd.Criteria['mode'] = 'load_goal';
 
@@ -109,22 +116,22 @@ var tpoly = {
                 m = (s+1);
                 if(resultSearch[i]['yes'] == 1) {
                     yes = '<div style="color:green;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
-                    no = '';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = resultSearch[i]['couclude'];
                 }
                 if(resultSearch[i]['no'] == 1) {
-                    yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 if(resultSearch[i]['yes'] == 0 && resultSearch[i]['no'] == 0) {
-                    yes = '';
-                    no = '';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 html += '<tr>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+ m +'</td>';
-                html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['site']+'</td>';
+                html += '<td class="text-left-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['site']+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['owner']+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['value']+'</td>';
                 html += '<td class="text-center-manage" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['thinks']+'</td>';
@@ -182,11 +189,19 @@ var tpoly = {
                 document.getElementById("yess").checked = true;
                 $('#result_y').val(1);
                 $('#result_n').val(0);
+            } else {
+                document.getElementById("yess").checked = false;
+                $('#result_y').val('');
+                $('#result_n').val('');
             }
             if(response[0]['no'] == 1) {
                 document.getElementById("nos").checked = true;
                 $('#result_y').val(0);
                 $('#result_n').val(1);
+            } else {
+                document.getElementById("nos").checked = false;
+                $('#result_y').val('');
+                $('#result_n').val('');
             }
         });
     }
@@ -248,7 +263,9 @@ var tpoly = {
 
         var get_ajax = $.ajax(ajax_config);
         get_ajax.done(function(response) {
+            console.log(response);
             tpoly.projectAdd.auctionList();
+            tpoly.popup('close');
         });
     }
 

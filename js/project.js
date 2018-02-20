@@ -21,6 +21,22 @@ var tpoly = {
         }
     }
 
+    tpoly.project.goalLoad = function() {
+        tpoly.project.Criteria['mode'] = 'load_goal';
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.project.Criteria,
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            document.getElementById("goals").innerHTML = response + ' ลบ.';
+        });
+    }
+
     tpoly.project.TurnPages = function() {
         window.location = ("../Progress/progress2.php");
     }
@@ -70,40 +86,42 @@ var tpoly = {
                 s = parseInt(i);
                 m = (s+1);
 
-                lengthCheck = resultSearch[i]['owner'].length;
-                if(lengthCheck <=12) {
-                    value = resultSearch[i]['owner'];
-                }
-                if(lengthCheck > 12 || lengthCheck <= 24) {
-                    test1 = resultSearch[i]['owner'].slice(0, 12);
-                    test2 = resultSearch[i]['owner'].slice(12, 24);
-                    value = test1+'<br>'+test2;
-                }
-                if(lengthCheck > 24) {
-                    test1 = resultSearch[i]['owner'].slice(0, 12);
-                    test2 = resultSearch[i]['owner'].slice(12, 24);
-                    test3 = resultSearch[i]['owner'].slice(24, 36);
-                    value = test1+'<br>'+test2+'<br>'+test3;
-                }
+                // lengthCheck = resultSearch[i]['owner'].length;
+                // if(lengthCheck <=12) {
+                //     value = resultSearch[i]['owner'];
+                // }
+                // if(lengthCheck > 12 || lengthCheck <= 24) {
+                //     test1 = resultSearch[i]['owner'].slice(0, 12);
+                //     test2 = resultSearch[i]['owner'].slice(12, 24);
+                //     value = test1+'<br>'+test2;
+                // }
+                // if(lengthCheck > 24) {
+                //     test1 = resultSearch[i]['owner'].slice(0, 12);
+                //     test2 = resultSearch[i]['owner'].slice(12, 24);
+                //     test3 = resultSearch[i]['owner'].slice(24, 36);
+                //     value = test1+'<br>'+test2+'<br>'+test3;
+                // }
+
+                value = resultSearch[i]['owner'];
 
                 if(resultSearch[i]['yes'] == 1) {
                     yes = '<div style="color:green;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
-                    no = '';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = resultSearch[i]['couclude'];
                 }
                 if(resultSearch[i]['no'] == 1) {
-                    yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 if(resultSearch[i]['yes'] == 0 && resultSearch[i]['no'] == 0) {
-                    yes = '';
-                    no = '';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 html += '<tr>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+ m +'</td>';
-                html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['site']+'</td>';
+                html += '<td class="text-lefts" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['site']+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+value+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['value']+'</td>';
                 html += '<td class="text-centers" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">'+resultSearch[i]['thinks']+'</td>';

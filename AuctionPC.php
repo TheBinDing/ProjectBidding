@@ -54,16 +54,14 @@
                 </div>
                 <div class="col-xs-2">
                     <p class="text-heads" style="margin-top: 10px;font-size: 17px;" id="goal"></p>
-                    <p class="text-heads" style="font-size: 17px;">
-                        3,300 ลบ.
-                    </p>
+                    <p class="text-heads" style="font-size: 17px;" id="goals"></p>
                 </div>
                 <br><br><br><br><br>
                 <div style="padding-bottom: 20px;">
                     <div class="radio radio-info radio-inline">
-                        <button class="open-sendname btn-white btn btn-xs" id="turnPages" onClick="tpoly.project.TurnPages();"><i class="fa fa-link"></i> สถานะโครงการ</button>
+                        <button class="open-sendname btn-white btn btn-xs text-centers" id="turnPages" onClick="tpoly.project.TurnPages();"><i class="fa fa-link"></i> สถานะโครงการ</button>
                     </div>
-                    <div class="pull-right" style="color: yellow;" id="showTime"></div>
+                    <div class="pull-right text-centers" style="color: yellow;" id="showTime"></div>
                 </div>
                 <div id="AuctionList"></div>
             </div>
@@ -83,6 +81,7 @@
     jQuery(function( $ ) {
         tpoly.project.Criteria = {};
         tpoly.project.auctionList();
+        tpoly.project.goalLoad();
         tpoly.StartClock24();
     });
 

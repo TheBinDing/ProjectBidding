@@ -83,7 +83,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">ชื่อโครงการ</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="site" id="site" maxlength="50">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" name="site" id="site">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
@@ -202,7 +202,7 @@
                                                     <div class="col-lg-4 col-md-4">
                                                         <div class="form-group field-projectprogress-name required">
                                                             <label class="control-label" for="projectprogress-name">ชื่อโครงการ</label>
-                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="sites" maxlength="50">
+                                                            <input style="text-align: center;" type="text" class="input-sm form-control" id="sites">
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
@@ -255,7 +255,12 @@
                                                 <div class="col-lg-12 col-md-12">
                                                     <!-- <strong>ผลการประมูลงาน</strong><hr/> -->
                                                     <div class="col-lg-2 col-md-2">
-                                                        <label class="control-label" for="projectprogress-name">ผลการประมูลงาน</label>
+                                                        <div style="width: 150px;">
+                                                            <label class="control-label" for="projectprogress-name">
+                                                                ผลการประมูลงาน  
+                                                                <a style="margin-left: 5px;" onClick="tpoly.projectAdd.clearRadio();"><i class="fa fa-edit"></i></a>
+                                                            </label>
+                                                        </div>
                                                         <div class="form-group">
                                                             <div class="radio radio-info radio-inline">
                                                                 <input type="hidden" id="result_y" />

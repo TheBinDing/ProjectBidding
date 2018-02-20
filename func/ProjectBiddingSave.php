@@ -130,6 +130,7 @@
                     id = '". $arr['id'] ."' ";
 
         mssql_query($sql);
+        // return $sql;
     }
 
     function update_goal($arr) {

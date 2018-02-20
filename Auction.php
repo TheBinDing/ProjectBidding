@@ -39,9 +39,7 @@
                     </div>
                     <div class="col-xs-3">
                         <p class="text-heads" style="margin-right: 68px;margin-top: 45px;font-size: 49px;" id="goals"></p>
-                        <p class="text-heads" style="margin-right: 68px;font-size: 49px;">
-                            3,300 ลบ.
-                        </p>
+                        <p class="text-heads" style="margin-right: 68px;font-size: 49px;" id="goaly"></p>
                     </div>
                     <div style="padding-bottom: 20px;">
                         <button class="open-sendname btn-white btn btn-xs" style="font-size: 28px;" id="turnPages" onClick="tpoly.project.TurnPages();"><i class="fa fa-link"></i> สถานะโครงการ</button>
@@ -51,8 +49,8 @@
 						<thead>
 							<tr>
 								<th class="text-head" rowspan="2" style="font-size: 25px;width:85px;background-color: #001f59;vertical-align: middle;">ลำดับ</th>
-								<th class="text-head" rowspan="2" style="font-size: 25px;width:330px;background-color: #001f59;vertical-align: middle;">ชื่อโครงการ</th>
-								<th class="text-head" rowspan="2" style="font-size: 25px;width:150px;background-color: #001f59;vertical-align: middle;">เจ้าของโครงการ</th>
+								<th class="text-head" rowspan="2" style="font-size: 25px;width:340px;background-color: #001f59;vertical-align: middle;">ชื่อโครงการ</th>
+								<th class="text-head" rowspan="2" style="font-size: 25px;width:160px;background-color: #001f59;vertical-align: middle;">เจ้าของโครงการ</th>
 								<th class="text-head" rowspan="2" style="font-size: 25px;width:95px;background-color: #001f59;vertical-align: middle;">มูลค่า</th>
 								<th class="text-head" colspan="4" style="font-size: 25px;width:200px;background-color: #001f59;vertical-align: middle;">ขั้นตอนกระบวนการ</th>
 								<th class="text-head" colspan="2" style="font-size: 25px;width:80px;background-color: #001f59;vertical-align: middle;">ผลการประมูล</th>
@@ -105,6 +103,7 @@
     jQuery(function( $ ) {
         tpoly.project.Criteria = {};
         tpoly.project.auctionList();
+        tpoly.project.goalLoad();
         tpoly.StartClock24();
     });
 

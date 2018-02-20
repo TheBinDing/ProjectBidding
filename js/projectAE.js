@@ -22,6 +22,22 @@ var tpoly = {
         }
     }
 
+    tpoly.project.goalLoad = function() {
+        tpoly.project.Criteria['mode'] = 'load_goal';
+
+        var ajax_config = {
+            url: "func/ProjectBiddingSearch.php",
+            dataType: "json",
+            type: "POST",
+            data: tpoly.project.Criteria,
+        }
+
+        var get_ajax = $.ajax(ajax_config);
+        get_ajax.done(function(response) {
+            document.getElementById("goaly").innerHTML = response + ' ลบ.';
+        });
+    }
+
     tpoly.project.TurnPages = function() {
         window.location = ("../Progress/progress.php");
     }
@@ -70,7 +86,7 @@ var tpoly = {
 			html += '<tr>';
 			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">999991</td>';
 			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">โครงการพัฒนาที่ดินราชพัสดุ   (ที่พัก บนเกาะสีชัง)</td>';
-			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">Thaipolycons<br>Thaipolycons</td>';
+			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">Thaipolycons</td>';
 			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">999.99</td>';
 			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">99/99/9999</td>';
 			html += '<td class="text-center" style="vertical-align: middle;color: #000000;background-color: #E6E6FA;">99/99/9999</td>';
@@ -85,35 +101,37 @@ var tpoly = {
                 s = parseInt(i);
                 m = (s+1);
 
-                lengthCheck = resultSearch[i]['owner'].length;
-                if(lengthCheck <=12) {
-                    value = resultSearch[i]['owner'];
-                }
-                if(lengthCheck > 12 || lengthCheck <= 24) {
-                    test1 = resultSearch[i]['owner'].slice(0, 12);
-                    test2 = resultSearch[i]['owner'].slice(12, 24);
-                    value = test1+'<br>'+test2;
-                }
-                if(lengthCheck > 24) {
-                    test1 = resultSearch[i]['owner'].slice(0, 12);
-                    test2 = resultSearch[i]['owner'].slice(12, 24);
-                    test3 = resultSearch[i]['owner'].slice(24, 36);
-                    value = test1+'<br>'+test2+'<br>'+test3;
-                }
+                // lengthCheck = resultSearch[i]['owner'].length;
+                // if(lengthCheck <=12) {
+                //     value = resultSearch[i]['owner'];
+                // }
+                // if(lengthCheck > 12 || lengthCheck <= 24) {
+                //     test1 = resultSearch[i]['owner'].slice(0, 12);
+                //     test2 = resultSearch[i]['owner'].slice(12, 24);
+                //     value = test1+'<br>'+test2;
+                // }
+                // if(lengthCheck > 24) {
+                //     test1 = resultSearch[i]['owner'].slice(0, 12);
+                //     test2 = resultSearch[i]['owner'].slice(12, 24);
+                //     test3 = resultSearch[i]['owner'].slice(24, 36);
+                //     value = test1+'<br>'+test2+'<br>'+test3;
+                // }
+
+                value = resultSearch[i]['owner'];
 
                 if(resultSearch[i]['yes'] == 1) {
                     yes = '<div style="color:green;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
-                    no = '';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = resultSearch[i]['couclude'];
                 }
                 if(resultSearch[i]['no'] == 1) {
-                    yes = '';
                     no = '<div style="color:red;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 if(resultSearch[i]['yes'] == 0 && resultSearch[i]['no'] == 0) {
-                    yes = '';
-                    no = '';
+                    yes = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
+                    no = '<div style="color: #c4c4c4;"><i class="fa fa-circle" aria-hidden="true"></i></div>';
                     couclude = '';
                 }
                 html += '<tr>';
