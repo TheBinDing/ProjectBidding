@@ -16,7 +16,10 @@
                 FROM
                     [ProjectBibding].[dbo].[auction]
                 WHERE
-                    status = '1' ";
+                    status = '1'
+                ORDER BY
+                    yes DESC,
+                    no DESC ";
 
         $query = mssql_query($sql);
         $response = array();
